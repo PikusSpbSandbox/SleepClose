@@ -4,7 +4,7 @@ DetectHiddenWindows,On
 
 global Minute := 60
 global Hour := Minute * 60
-Duration := Hour + Floor(Hour / 2)
+Duration := Hour + Floor(Hour / 2) ; timer duration in seconds
 Timer := Duration
 
 
@@ -27,5 +27,4 @@ Loop, %Duration% {
    TimerString := % FormatSeconds(Timer)
    Menu, Tray, Tip, Time left: %TimerString%
 }
-WinClose, Crow
-;RunWait taskkill /F /IM Crow.exe
+WinClose, Crow ; - any other app name here
