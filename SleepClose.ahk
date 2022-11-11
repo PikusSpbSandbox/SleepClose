@@ -27,4 +27,6 @@ Loop, %Duration% {
    TimerString := % FormatSeconds(Timer)
    Menu, Tray, Tip, Time left: %TimerString%
 }
-WinClose, Crow ; - any other app name here
+WinClose, Crow ; try to close app to make sure it saves it's status on close
+sleep, 5000
+run, taskkill /f /im Crow.exe ; kill process to make sure task is killed
