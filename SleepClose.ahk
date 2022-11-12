@@ -30,3 +30,13 @@ Loop, %Duration% {
 WinClose, Crow ; try to close app to make sure it saves it's status on close
 sleep, 5000
 run, taskkill /f /im Crow.exe ; kill process to make sure task is killed
+
+Timer := Duration
+
+Loop, %Duration% {
+   Sleep, 1000
+   Timer --
+   TimerString := % FormatSeconds(Timer)
+   Menu, Tray, Tip, Time left: %TimerString%
+}
+Shutdown, 5
